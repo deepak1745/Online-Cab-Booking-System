@@ -1,0 +1,69 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">	
+  <context:component-scan base-package="com.wipro.ata" />
+  <bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+  </bean>
+  
+ <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"/>
+<property name="username" value="hr"/>
+<property name="password" value="hr"/>
+</bean>
+<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+<property name="dataSource" ref="dataSource"/>
+<property name="annotatedClasses">
+<list>
+<value>com.wipro.ata.bean.LoginBean</value>
+<value>com.wipro.ata.bean.UserProfileBean</value>
+<value>com.wipro.ata.bean.CreditCardBean</value>
+<value>com.wipro.ata.bean.VehicleBean</value>
+<value>com.wipro.ata.bean.DriverBean</value>
+<value>com.wipro.ata.bean.DriverAddressBean</value>
+<value>com.wipro.ata.bean.RouteBean</value>
+<value>com.wipro.ata.bean.PaymentHistoryBean</value>
+<value>com.wipro.ata.bean.UserAddressBean</value>
+<value>com.wipro.ata.bean.BookingBean</value>
+</list>
+</property>
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+<prop key="hibernate.show_sql">true</prop>
+<prop key="hibernate.hbm2ddl.auto">update</prop>
+</props>
+</property>
+</bean>
+<bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+         <property name="basename" value="classpath:message" />
+        </bean>
+<bean id="incrementer" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+    <property name="dataSource" ref="dataSource" />
+    <property name="incrementerName" value="driver_seq" />
+</bean>
+<bean id="incrementer1" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+    <property name="dataSource" ref="dataSource" />
+    <property name="incrementerName" value="route_seq" />
+</bean>
+<bean id="incrementer2" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+    <property name="dataSource" ref="dataSource" />
+    <property name="incrementerName" value="booking_seq" />
+</bean>
+ </beans>
