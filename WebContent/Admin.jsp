@@ -1,3 +1,15 @@
+<!-- Copyright 2016 Deepak Kumar
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+This code is written by Deepak Kumar -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,10 +20,10 @@
 <style type="text/css">
 ul li {display: inline-block;width: 245px;}
 ul li ul li:hover {background: maroon;}
-ul li ul li a {display:block !important;} 
-ul li ul li { 
-  background: #555; 
-  display: block; 
+ul li ul li a {display:block !important;}
+ul li ul li {
+  background: #555;
+  display: block;
 }
 ul li:hover ul {display: block;}
 ul li ul {
@@ -29,7 +41,7 @@ div a {
     color: white;
     font-size: 20px;
     padding: 15px;
-    display:inline-block;  
+    display:inline-block;
 }
 div{
 background-color: green;}
@@ -85,14 +97,14 @@ margin-left: 4%;
         <li><a href="ViewAllRoute">View Route</a></li>
       </ul>
     </li>
-    
+
      <li>
       <a href="#">Customer</a>
       <ul>
         <li><a href="BookedTicketsAll">Booked Tickets</a></li>
       </ul>
     </li>
-    
+
   </ul>
 </div>
  <h1>${Warning}</h1>

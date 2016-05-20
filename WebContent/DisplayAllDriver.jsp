@@ -1,3 +1,15 @@
+<!-- Copyright 2016 Deepak Kumar
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+This code is written by Deepak Kumar -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,7 +39,7 @@
 	<td>PinCode</td>
 </tr>
 <%
-ArrayList<Object[]> arraydriver= (ArrayList<Object[]>)request.getAttribute("drivers"); 
+ArrayList<Object[]> arraydriver= (ArrayList<Object[]>)request.getAttribute("drivers");
 Iterator it = arraydriver.iterator();
 while(it.hasNext()){
 	 Object[] arraydriverinfo = (Object[]) it.next();
@@ -46,7 +58,7 @@ while(it.hasNext()){
 	<td><%=arraydriverinfo[10] %></td>
 	<td><%=arraydriverinfo[11] %></td>
 </tr>
-	
+
 <%
 }
 %>
